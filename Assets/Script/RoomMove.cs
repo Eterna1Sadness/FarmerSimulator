@@ -25,13 +25,13 @@ public class RoomMove : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
             cam.minPosition += cameraChange;
             cam.maxPosition += cameraChange;
-            collision.transform.position += playerChange;
+            other.transform.position += playerChange;
             if(needText)
             {
                 StartCoroutine(placeNameCo());
