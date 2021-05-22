@@ -6479,7 +6479,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.61, y: 2.33, z: -10}
+  m_LocalPosition: {x: 15.82, y: 2.33, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19915,7 +19915,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -20048,7 +20048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 788784765}
   dialogText: {fileID: 729391731}
-  dialog: AAAAAAAAA
+  dialog: "\u0412 \u044D\u0442\u043E\u0439 \u0441\u0442\u043E\u0440\u043E\u043D\u0435
+    \u0433\u043E\u0440\u043E\u0434!"
   playerInRange: 0
 --- !u!1001 &1292671814
 PrefabInstance:
@@ -20462,6 +20463,14 @@ PrefabInstance:
     - target: {fileID: 4119855305446769668, guid: 9481ef6e7d830dc4b8d875b620748bae, type: 3}
       propertyPath: m_Name
       value: sign
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282726541788967497, guid: 9481ef6e7d830dc4b8d875b620748bae, type: 3}
+      propertyPath: m_Size.y
+      value: 2.012086
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282726541788967497, guid: 9481ef6e7d830dc4b8d875b620748bae, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.506043
       objectReference: {fileID: 0}
     - target: {fileID: 7282726541788967497, guid: 9481ef6e7d830dc4b8d875b620748bae, type: 3}
       propertyPath: m_IsTrigger
