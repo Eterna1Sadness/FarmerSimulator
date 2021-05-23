@@ -47,6 +47,9 @@ TagManager:
   - name: Player
     uniqueID: 2786008553
     locked: 0
+  - name: Higher
+    uniqueID: 3154279929
+    locked: 0
   - name: Trees
     uniqueID: 1305093133
     locked: 0

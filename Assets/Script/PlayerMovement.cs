@@ -37,34 +37,39 @@ public class PlayerMovement : MonoBehaviour
 
         change = new Vector2(horizontal, vertical);
 
-        animator.SetFloat("lastHorizontal", horizontal);
-        animator.SetFloat("lastVertical", vertical);
+        animator.SetFloat("moveX", horizontal);
+        animator.SetFloat("moveY", vertical);
 
         moving = horizontal != 0 || vertical != 0;
         animator.SetBool("moving", moving);
 
-        if (horizontal != 0 || vertical != 0)
+        if (change != Vector2.zero)
         {
-            lastMotionVector = new Vector2(horizontal, vertical).normalized;
-            animator.SetFloat("lastHorizontal", horizontal);
-            animator.SetFloat("lastVertical", vertical);
+            //lastMotionVector = new Vector2(horizontal, vertical).normalized;
+            animator.SetFloat("moveX", horizontal);
+            animator.SetFloat("moveY", vertical); 
+            animator.SetBool("moving", true);
+        }
+        else
+        {
+            animator.SetBool("moving", false);
         }
 
         //change = Vector2.zero;
         //change.x = Input.GetAxisRaw("Horizontal");
         //change.y = Input.GetAxisRaw("Vertical");
-        //if(Input.GetButtonDown("dig") && currentState != PlayerState.dig)
-        //{
-        //    StartCoroutine(DigCo());
-        //}
-        //else if (Input.GetButtonDown("axe") && currentState != PlayerState.axe)
-        //{
-        //    StartCoroutine(AxeCo());
-        //}
-        //else if (Input.GetButtonDown("pick") && currentState != PlayerState.pick)
-        //{
-        //    StartCoroutine(PickCo());
-        //}
+        if (Input.GetButtonDown("dig") && currentState != PlayerState.dig)
+        {
+            StartCoroutine(DigCo());
+        }
+        else if (Input.GetButtonDown("axe") && currentState != PlayerState.axe)
+        {
+            StartCoroutine(AxeCo());
+        }
+        else if (Input.GetButtonDown("pick") && currentState != PlayerState.pick)
+        {
+            StartCoroutine(PickCo());
+        }
         //else if(currentState == PlayerState.walk)
         //{
         //    UpdateAnimationAndMove();
