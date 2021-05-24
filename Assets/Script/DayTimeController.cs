@@ -33,7 +33,7 @@ public class DayTimeController : MonoBehaviour
         time += Time.deltaTime * timeScale;
         int hh = (int)Hours;
         int mm = (int)Minutes;
-        text.text = hh.ToString("07") + ":" + mm.ToString("00");
+        text.text = hh.ToString("00") + ":" + mm.ToString("00");
         float v = nightTimeCurve.Evaluate(Hours);
         Color c = Color.Lerp(dayLightColor, nightLightColor, v);
         globalLight.color = c;
