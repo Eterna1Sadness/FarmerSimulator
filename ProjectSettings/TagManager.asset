@@ -53,3 +53,6 @@ TagManager:
   - name: Trees
     uniqueID: 1305093133
     locked: 0
+  - name: Marker
+    uniqueID: 1933032533
+    locked: 0
