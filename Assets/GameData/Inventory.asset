@@ -13,75 +13,75 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   slots:
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 11400000, guid: 2aec7e178978a6c4ba19c6ffd604bf64, type: 2}
+  - item: {fileID: 11400000, guid: a75a6fb7868f90a4388c3560b8f6d695, type: 2}
     count: 0
   - item: {fileID: 11400000, guid: 2aec7e178978a6c4ba19c6ffd604bf64, type: 2}
     count: 0
   - item: {fileID: 11400000, guid: ed81316e2aff82047908a10b719f152e, type: 2}
     count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
   - item: {fileID: 11400000, guid: 47105af94ea35dc44812aa9937f1c011, type: 2}
-    count: 460
-  - item: {fileID: 11400000, guid: a75a6fb7868f90a4388c3560b8f6d695, type: 2}
+    count: 10
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
+    count: 0
+  - item: {fileID: 0}
     count: 0

@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Pick
   stackable: 0
   icon: {fileID: 8699069900992395679, guid: f1789e976263ae14c939c409f2da7854, type: 3}
+  onAction: {fileID: 11400000, guid: 93b38c68c0c4cba448648fcec19e5101, type: 2}

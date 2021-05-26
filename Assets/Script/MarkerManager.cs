@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class MarkerManager : MonoBehaviour
 {
-    [SerializeField] Tilemap targetTilemap;
+    public Tilemap targetTilemap;
     [SerializeField] TileBase tile;
     public Vector3Int markedCellPosition;
     Vector3Int oldCellPosition;

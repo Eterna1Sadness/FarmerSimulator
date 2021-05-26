@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e317426d351ec264783995433c4609b5, type: 3}
-  m_Name: Axe
+  m_Script: {fileID: 11500000, guid: f652fb4b5a5fc4d4f84cd12b6216da7b, type: 3}
+  m_Name: CutTree
   m_EditorClassIdentifier: 
-  Name: Axe
-  stackable: 0
-  icon: {fileID: 7155652846937496742, guid: f1789e976263ae14c939c409f2da7854, type: 3}
-  onAction: {fileID: 11400000, guid: f8c329177f353994faee408b7d8e0af8, type: 2}
+  sizeOfInteractableArea: 1
+  canHitNodesOfType: 01000000

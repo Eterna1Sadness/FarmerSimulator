@@ -2,17 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ToolsCharacterController : MonoBehaviour
 {
     PlayerMovement character;
     Rigidbody2D rgbd2d;
+    ToolBarController toolBarController;
+    Animator animator;
     [SerializeField] float offsetDistance;
     [SerializeField] float sizeOfInteractableArea;
-    [SerializeField] MarkerManager markerManager;
+    [SerializeField] MarkerManager markerManager; 
     [SerializeField] TileMapReadController tileMapReadController;
     [SerializeField] float maxDistance = 1.5f;
-    [SerializeField] CropsManager cropsManager;
+
+    public PlayerState currentState;
 
     Vector3Int selectedTilePosition;
     bool selectable;
@@ -21,6 +25,8 @@ public class ToolsCharacterController : MonoBehaviour
     {
         character = GetComponent<PlayerMovement>();
         rgbd2d = GetComponent<Rigidbody2D>();
+        toolBarController = GetComponent<ToolBarController>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -30,8 +36,11 @@ public class ToolsCharacterController : MonoBehaviour
         Marker();
         if(Input.GetMouseButtonDown(0))
         {
-            UseToolWorld();
-            UseToolWorld();
+            if(UseToolWorld() == true)
+            {
+                return;
+            }
+            UseToolGrid();
         }
     }
 
@@ -53,28 +62,31 @@ public class ToolsCharacterController : MonoBehaviour
         markerManager.markedCellPosition = selectedTilePosition;
     }
 
-    private void UseToolWorld()
+    private bool UseToolWorld()
     {
         Vector2 position = rgbd2d.position + character.lastMotionVector * offsetDistance;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
+        Item item = toolBarController.GetItem;
+        if(item == null) { return false; }
+        if(item.onAction == null) { return false; }
 
-        foreach (Collider2D c in  colliders)
-        {
-            ToolHit hit = c.GetComponent<ToolHit>();
-            if(hit != null)
-            {
-                hit.Hit();
-                break;
-            }
-        }
+        animator.SetTrigger("axe");
+
+        bool complete = item.onAction.OnApply(position);
+
+        return false;
     }
 
     private void UseToolGrid()
     {
         if(selectable == true)
         {
-            cropsManager.Plow(selectedTilePosition);
+            Item item = toolBarController.GetItem;
+            if(item == null) { return; }
+            if(item.onTileMapAction == null) { return; }
+
+            animator.SetTrigger("axe");
+            bool complete = item.onTileMapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController); 
         }
     }
 }
