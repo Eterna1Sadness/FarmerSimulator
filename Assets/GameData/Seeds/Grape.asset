@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e317426d351ec264783995433c4609b5, type: 3}
-  m_Name: Hoe
+  m_Name: Grape
   m_EditorClassIdentifier: 
-  Name: Hoe
-  stackable: 0
-  icon: {fileID: 1559704157218881296, guid: f1789e976263ae14c939c409f2da7854, type: 3}
+  Name: PurpleGrape
+  stackable: 1
+  icon: {fileID: 21300000, guid: b8d5666e6a767fb448c955874000eb2c, type: 3}
   onAction: {fileID: 0}
-  onTileMapAction: {fileID: 11400000, guid: f36c871b4b9ede5438ed5475d46399ee, type: 2}
+  onTileMapAction: {fileID: 11400000, guid: a88a02dc21329744aa7d32364722f7cb, type: 2}
+  onItemUsed: {fileID: 11400000, guid: a88a02dc21329744aa7d32364722f7cb, type: 2}

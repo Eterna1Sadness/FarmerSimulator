@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Data/ToolAction/SeedTile")]
 public class SeedTile : ToolAction
 {
     public override bool OnApplyToTileMap(Vector3Int gridPosition, TileMapReadController tileMapReadController)
@@ -14,5 +15,10 @@ public class SeedTile : ToolAction
         tileMapReadController.cropsManager.Seed(gridPosition);
 
         return true;
+    }
+
+    public override void OnItemUsed(Item usedItem, ItemContainer inventory)
+    {
+        inventory.Remove(usedItem);
     }
 }
