@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DayTimeController : MonoBehaviour
 {
     const float secondsInDay = 86400f;
+    const float phaseLenght = 900f; //15 minutes chunk of time
 
     [SerializeField] Color nightLightColor;
     [SerializeField] AnimationCurve nightTimeCurve;
@@ -14,10 +15,34 @@ public class DayTimeController : MonoBehaviour
 
     float time;
     [SerializeField] float timeScale = 60f;
+    [SerializeField] float startAtTime = 25200f;
+
 
     [SerializeField] Text text;
     [SerializeField] Light2D globalLight;
     private int days;
+
+    List<TimeAgent> agents;
+
+    private void Awake()
+    {
+        agents = new List<TimeAgent>();
+    }
+
+    private void Start()
+    {
+        time = startAtTime;
+    }
+
+    public void Subscribe(TimeAgent timeAgent)
+    {
+        agents.Add(timeAgent);
+    }
+
+    public void Unsubscribe(TimeAgent timeAgent)
+    {
+        agents.Remove(timeAgent);
+    }
 
     float Hours
     {
@@ -31,15 +56,44 @@ public class DayTimeController : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime * timeScale;
+
+        TimeValueCalculation();
+        DayLight();
+
+        if (time > secondsInDay)
+        {
+            NextDay();
+        }
+
+        TimeAgents();
+    }
+
+    private void TimeValueCalculation()
+    {
         int hh = (int)Hours;
         int mm = (int)Minutes;
         text.text = hh.ToString("00") + ":" + mm.ToString("00");
+    }
+
+    private void DayLight()
+    {
         float v = nightTimeCurve.Evaluate(Hours);
         Color c = Color.Lerp(dayLightColor, nightLightColor, v);
         globalLight.color = c;
-        if(time > secondsInDay)
+    }
+
+    int oldPhase = 0;
+    private void TimeAgents()
+    {
+        int currentPhase = (int)(time / phaseLenght);
+        
+        if(oldPhase != currentPhase)
         {
-            NextDay();
+            oldPhase = currentPhase;
+            for(int i = 0; i < agents.Count; i++)
+            {
+                agents[i].Invoke();
+            }
         }
     }
 

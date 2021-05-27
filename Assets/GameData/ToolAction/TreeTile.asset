@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Plowable
+  m_Script: {fileID: 11500000, guid: e83f667ff49a03648b0c462a69e0ce28, type: 3}
+  m_Name: TreeTile
   m_EditorClassIdentifier: 

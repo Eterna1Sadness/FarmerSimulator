@@ -268,7 +268,7 @@ Transform:
   - {fileID: 1060806210}
   - {fileID: 2029603436}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &8387113 stripped
 RectTransform:
@@ -3098,6 +3098,7 @@ MonoBehaviour:
   player: {fileID: 1049194743}
   inventoryContainer: {fileID: 11400000, guid: 7635b9c0c5f687e489962231b6f3475d, type: 2}
   dragAdDropController: {fileID: 972291619}
+  timeController: {fileID: 972291618}
 --- !u!4 &972291617
 Transform:
   m_ObjectHideFlags: 0
@@ -3129,7 +3130,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -6.9906487
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -3138,7 +3139,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: -2.9906487
+      time: 4.020133
       value: 1
       inSlope: -0.0057438826
       outSlope: -0.0057438826
@@ -3147,7 +3148,7 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.2975831
     - serializedVersion: 3
-      time: -1.9906487
+      time: 5.020133
       value: 0
       inSlope: 0.011353844
       outSlope: 0.011353844
@@ -3156,7 +3157,7 @@ MonoBehaviour:
       inWeight: 0.4188528
       outWeight: 0.01502421
     - serializedVersion: 3
-      time: 14.009352
+      time: 21.020134
       value: 0
       inSlope: 0.00084781187
       outSlope: 0.00084781187
@@ -3165,7 +3166,7 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.1224947
     - serializedVersion: 3
-      time: 16.009352
+      time: 23.020134
       value: 1
       inSlope: 0.072140925
       outSlope: 0.072140925
@@ -3174,7 +3175,7 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 17.009352
+      time: 24
       value: 1
       inSlope: 0
       outSlope: 0
@@ -3187,6 +3188,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   dayLightColor: {r: 1, g: 1, b: 1, a: 1}
   timeScale: 60
+  startAtTime: 25200
   text: {fileID: 985936311}
   globalLight: {fileID: 1867428223}
 --- !u!114 &972291619
@@ -5219,7 +5221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363190719009321031, guid: af528c6afab621d468d0172440803acc, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7363190719009321031, guid: af528c6afab621d468d0172440803acc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7074,7 +7076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5831266675030256771, guid: bb971ab468dc25545a0f8cabd4d20b99, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5831266675030256771, guid: bb971ab468dc25545a0f8cabd4d20b99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12047,9 +12049,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 7770412848385086425, guid: 9b2269c14bd23604496ccd1f68cb022b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.91637754
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770412848385086425, guid: 9b2269c14bd23604496ccd1f68cb022b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.10823417
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752461753797795033, guid: 9b2269c14bd23604496ccd1f68cb022b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5500412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752461753797795033, guid: 9b2269c14bd23604496ccd1f68cb022b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1817751
+      objectReference: {fileID: 0}
     - target: {fileID: 8752461753797795033, guid: 9b2269c14bd23604496ccd1f68cb022b, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752461753797795033, guid: 9b2269c14bd23604496ccd1f68cb022b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.027050018
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752461753797795033, guid: 9b2269c14bd23604496ccd1f68cb022b, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.4091125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2269c14bd23604496ccd1f68cb022b, type: 3}
