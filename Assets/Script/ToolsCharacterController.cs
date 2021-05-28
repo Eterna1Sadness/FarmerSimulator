@@ -15,6 +15,7 @@ public class ToolsCharacterController : MonoBehaviour
     [SerializeField] MarkerManager markerManager; 
     [SerializeField] TileMapReadController tileMapReadController;
     [SerializeField] float maxDistance = 1.5f;
+    [SerializeField] CropsManager cropsManager;
 
     public PlayerState currentState;
 
@@ -89,6 +90,7 @@ public class ToolsCharacterController : MonoBehaviour
     {
         if(selectable == true)
         {
+            Debug.Log("da");
             Item item = toolBarController.GetItem;
             if(item == null) { return; }
             if(item.onTileMapAction == null) { return; }

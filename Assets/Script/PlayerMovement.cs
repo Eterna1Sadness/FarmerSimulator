@@ -58,18 +58,18 @@ public class PlayerMovement : MonoBehaviour
         //change = Vector2.zero;
         //change.x = Input.GetAxisRaw("Horizontal");
         //change.y = Input.GetAxisRaw("Vertical");
-        if (Input.GetButtonDown("dig") && currentState != PlayerState.dig)
-        {
-            StartCoroutine(DigCo());
-        }
-        else if (Input.GetButtonDown("axe") && currentState != PlayerState.axe)
-        {
-            StartCoroutine(AxeCo());
-        }
-        else if (Input.GetButtonDown("pick") && currentState != PlayerState.pick)
-        {
-            StartCoroutine(PickCo());
-        }
+        //if (Input.GetButtonDown("dig") && currentState != PlayerState.dig)
+        //{
+        //    StartCoroutine(DigCo());
+        //}
+        //else if (Input.GetButtonDown("axe") && currentState != PlayerState.axe)
+        //{
+        //    StartCoroutine(AxeCo());
+        //}
+        //else if (Input.GetButtonDown("pick") && currentState != PlayerState.pick)
+        //{
+        //    StartCoroutine(PickCo());
+        //}
         //else if(currentState == PlayerState.walk)
         //{
         //    UpdateAnimationAndMove();
@@ -89,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator AxeCo()
     {
+        animator.Play("Axing");
         animator.SetBool("axing", true);
         currentState = PlayerState.axe;
         yield return null;

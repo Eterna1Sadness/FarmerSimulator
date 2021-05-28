@@ -14,10 +14,13 @@ public class MarkerManager : MonoBehaviour
 
     private void Update()
     {
+
         if(show == false) { return; }
         targetTilemap.SetTile(oldCellPosition, null);
         targetTilemap.SetTile(markedCellPosition, tile);
+        
         oldCellPosition = markedCellPosition;
+        
     }
 
     internal void Show(bool selectable)
