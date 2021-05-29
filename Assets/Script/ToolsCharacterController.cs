@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -15,7 +12,6 @@ public class ToolsCharacterController : MonoBehaviour
     [SerializeField] MarkerManager markerManager; 
     [SerializeField] TileMapReadController tileMapReadController;
     [SerializeField] float maxDistance = 1.5f;
-    [SerializeField] CropsManager cropsManager;
 
     public PlayerState currentState;
 
@@ -37,7 +33,7 @@ public class ToolsCharacterController : MonoBehaviour
         Marker();
         if(Input.GetMouseButtonDown(0))
         {
-            if(UseToolWorld() == true)
+            if (UseToolWorld() == true)
             {
                 return;
             }
@@ -68,8 +64,8 @@ public class ToolsCharacterController : MonoBehaviour
         Vector2 position = rgbd2d.position + character.lastMotionVector * offsetDistance;
 
         Item item = toolBarController.GetItem;
-        if(item == null) { return false; }
-        if(item.onAction == null) { return false; }
+        if (item == null) { return false; }
+        if (item.onAction == null) { return false; }
 
         animator.SetTrigger("axe");
 
@@ -83,24 +79,23 @@ public class ToolsCharacterController : MonoBehaviour
             }
         }
 
-        return false;
+        return complete;
     }
 
     private void UseToolGrid()
     {
         if(selectable == true)
         {
-            Debug.Log("da");
             Item item = toolBarController.GetItem;
-            if(item == null) { return; }
-            if(item.onTileMapAction == null) { return; }
+            if (item == null) { return; }
+            if (item.onTileMapAction == null) { return; }
 
             animator.SetTrigger("axe");
-            bool complete = item.onTileMapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController); 
+            bool complete = item.onTileMapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController);
 
-            if(complete == true)
+            if (complete == true)
             {
-                if(item.onItemUsed != null)
+                if (item.onItemUsed != null)
                 {
                     item.onItemUsed.OnItemUsed(item, GameManager.instance.inventoryContainer);
                 }

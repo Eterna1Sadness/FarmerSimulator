@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Sign : MonoBehaviour
 {
-
+    [SerializeField] GameObject toolbarPanel;
     public GameObject dialogBox;
     public Text dialogText;
     public string dialog;
@@ -22,7 +22,8 @@ public class Sign : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && playerInRange)
         {
-            if(dialogBox.activeInHierarchy)
+            toolbarPanel.SetActive(!toolbarPanel.activeInHierarchy);
+            if (dialogBox.activeInHierarchy)
             {
                 dialogBox.SetActive(false);
             }

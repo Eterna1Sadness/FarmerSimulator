@@ -65,10 +65,10 @@ public class ItemContainer : ScriptableObject
 
     public void Remove(Item itemToRemove, int count = 1)
     {
-        if(itemToRemove.stackable == true)
+        if(itemToRemove.stackable)
         {
             ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
-            if (itemSlot != null) { return; }
+            if (itemSlot == null) { return; }
 
             itemSlot.count -= count;
             if(itemSlot.count <= 0)
@@ -83,7 +83,8 @@ public class ItemContainer : ScriptableObject
                 count -= 1;
 
                 ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
-                if(itemSlot != null) { return; }
+                if(itemSlot == null) { return; }
+
                 itemSlot.Clear();
             }
         }

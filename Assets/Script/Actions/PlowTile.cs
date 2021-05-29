@@ -18,6 +18,7 @@ public class PlowTile : ToolAction
         }
 
         tileMapReadController.cropsManager.Plow(gridPosition);
+        Debug.Log("Daaa");
 
         return true;
     }

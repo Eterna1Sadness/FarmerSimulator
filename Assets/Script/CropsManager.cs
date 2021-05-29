@@ -42,7 +42,7 @@ public class CropsManager : MonoBehaviour
         targetTilemap.SetTile(position, seeded);
     }
 
-    private void CreatePlowedTile(Vector3Int position)
+    private void CreatePlowedTile(Vector3Int position) 
     {
         Crops crop = new Crops();
         crops.Add((Vector2Int)position, crop);
