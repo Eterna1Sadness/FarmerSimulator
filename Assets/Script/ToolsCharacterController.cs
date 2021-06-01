@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -12,6 +13,9 @@ public class ToolsCharacterController : MonoBehaviour
     [SerializeField] MarkerManager markerManager; 
     [SerializeField] TileMapReadController tileMapReadController;
     [SerializeField] float maxDistance = 1.5f;
+    [SerializeField] ToolAction onTilePickUp;
+
+    Item item;
 
     public PlayerState currentState;
 
@@ -39,6 +43,11 @@ public class ToolsCharacterController : MonoBehaviour
             }
             UseToolGrid();
         }
+        if(Input.GetMouseButtonDown(1))
+        {
+            PickUpTile();
+            return;   
+        }
     }
 
     private void SelectTile()
@@ -59,15 +68,31 @@ public class ToolsCharacterController : MonoBehaviour
         markerManager.markedCellPosition = selectedTilePosition;
     }
 
+    private void UseTool()
+    {
+        if (item.Name == "Axe")
+        {
+            animator.SetTrigger("axe");
+        }
+        if (item.Name == "Hoe")
+        {
+            animator.SetTrigger("hoe");
+        }
+        if (item.Name == "Pick")
+        {
+            animator.SetTrigger("pick");
+        }
+    }
+
     private bool UseToolWorld()
     {
         Vector2 position = rgbd2d.position + character.lastMotionVector * offsetDistance;
 
-        Item item = toolBarController.GetItem;
+        item = toolBarController.GetItem;
         if (item == null) { return false; }
         if (item.onAction == null) { return false; }
 
-        animator.SetTrigger("axe");
+        UseTool();
 
         bool complete = item.onAction.OnApply(position);
 
@@ -90,8 +115,8 @@ public class ToolsCharacterController : MonoBehaviour
             if (item == null) { return; }
             if (item.onTileMapAction == null) { return; }
 
-            animator.SetTrigger("axe");
-            bool complete = item.onTileMapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController);
+            UseTool();
+            bool complete = item.onTileMapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController, item);
 
             if (complete == true)
             {
@@ -101,5 +126,12 @@ public class ToolsCharacterController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void PickUpTile()
+    {
+        if(onTilePickUp == null) { return; }
+
+        onTilePickUp.OnApplyToTileMap(selectedTilePosition, tileMapReadController, null);
     }
 }

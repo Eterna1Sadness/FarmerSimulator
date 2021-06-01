@@ -13,7 +13,6 @@ public class InventoryController : MonoBehaviour
         {
             panel.SetActive(!panel.activeInHierarchy);
             toolbarPanel.SetActive(!toolbarPanel.activeInHierarchy);
-
         }
     }
 }
