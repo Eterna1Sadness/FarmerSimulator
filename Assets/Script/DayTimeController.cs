@@ -27,11 +27,12 @@ public class DayTimeController : MonoBehaviour
     private void Awake()
     {
         agents = new List<TimeAgent>();
+        time = startAtTime;
     }
 
     private void Start()
     {
-        time = startAtTime;
+        
     }
 
     public void Subscribe(TimeAgent timeAgent)

@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public static PlayerMovement instances;
+
+
     private void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     public GameObject player;
