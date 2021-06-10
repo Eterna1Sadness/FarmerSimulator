@@ -1,33 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum PlayerState
-{
-    walk,
-    dig,
-    axe,
-    pick,
-    interact
-}
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidBody;
     public Vector2 change;
     public Vector2 lastMotionVector;
     private Animator animator;
     public VectorValue startingPosition;
-    private Item item;
+    public Vector2 position;
+
+    GameSceneManager currentScene;
+    string scene;
+
+    private void Awake()
+    {
+        transform.position = startingPosition.initialValue;
+    }
 
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        transform.position = startingPosition.initialValue;
+
+        currentScene = GetComponent<GameSceneManager>();
     }
 
     void Update()
@@ -62,5 +62,46 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         myRigidBody.MovePosition(myRigidBody.position + change * speed * Time.fixedDeltaTime);
+    }
+    
+    public void SavePlayer()
+    {
+        var camera = GameObject.Find("Main Camera").GetComponent<CameraMovement>();
+        var timeController = GameObject.Find("GameManager").GetComponent<DayTimeController>();
+        var scene = GameObject.Find("GameManager").GetComponent<GameSceneManager>();
+
+        SaveSystem.SavePlayer(this, camera, timeController, scene);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        var camera = GameObject.Find("Main Camera").GetComponent<CameraMovement>();
+        var timeController = GameObject.Find("GameManager").GetComponent<DayTimeController>();
+        var scene = GameObject.Find("GameManager").GetComponent<GameSceneManager>();
+
+        Vector2 position;
+
+        position.x = data.playerPosition[0];
+        position.y = data.playerPosition[1];
+
+        transform.position = new Vector3(position.x, position.y, 0);
+
+        Vector2 maxPos;
+        maxPos.x = data.maxPositionX;
+        maxPos.y = data.maxPositionY;
+
+        Vector2 minPos;
+        minPos.x = data.minPositionX;
+        minPos.y = data.minPositionY;
+
+        camera.maxPosition = new Vector2(maxPos.x, maxPos.y);
+        camera.minPosition = new Vector2(minPos.x, minPos.y);
+
+        timeController.time = data.time;
+
+        SceneManager.UnloadSceneAsync(scene.currentScene);
+        scene.currentScene = data.scene;
+        SceneManager.LoadScene(scene.currentScene, LoadSceneMode.Additive);
     }
 }

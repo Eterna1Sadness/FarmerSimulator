@@ -17,8 +17,6 @@ public class ToolsCharacterController : MonoBehaviour
 
     Item item;
 
-    public PlayerState currentState;
-
     Vector3Int selectedTilePosition;
     bool selectable;
 
@@ -68,7 +66,7 @@ public class ToolsCharacterController : MonoBehaviour
         markerManager.markedCellPosition = selectedTilePosition;
     }
 
-    private void UseTool()
+    private void AnimationTool()
     {
         if (item.Name == "Axe")
         {
@@ -92,7 +90,7 @@ public class ToolsCharacterController : MonoBehaviour
         if (item == null) { return false; }
         if (item.onAction == null) { return false; }
 
-        UseTool();
+        AnimationTool();
 
         bool complete = item.onAction.OnApply(position);
 
@@ -115,7 +113,7 @@ public class ToolsCharacterController : MonoBehaviour
             if (item == null) { return; }
             if (item.onTileMapAction == null) { return; }
 
-            UseTool();
+            AnimationTool();
             bool complete = item.onTileMapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController, item);
 
             if (complete == true)

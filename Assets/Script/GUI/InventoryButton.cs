@@ -45,6 +45,7 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
     {
         ItemPanel itemPanel = transform.parent.GetComponent<ItemPanel>();
         itemPanel.OnClick(myIndex);
+        //перетаскивание предметов из ячейки в ячейку
         //ItemContainer inventory = GameManager.instance.inventoryContainer;
         //GameManager.instance.dragAdDropController.OnClick(inventory.slots[myIndex]);
         //transform.parent.GetComponent<InventoryPanel>().Show();

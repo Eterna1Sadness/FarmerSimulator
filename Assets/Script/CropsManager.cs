@@ -67,7 +67,6 @@ public class CropsManager : TimeAgent
 
             if (cropTile.Complete)
             {
-                Debug.Log("I'm done growing!");
                 continue;
             }
 
@@ -103,9 +102,11 @@ public class CropsManager : TimeAgent
         targetTilemap.SetTile(position, seeded);
 
         crops[(Vector2Int)position].crop = toSeed;
+        crops[(Vector2Int)position].renderer.gameObject.SetActive(true);
+        crops[(Vector2Int)position].renderer.sprite = crops[(Vector2Int)position].crop.sprites[crops[(Vector2Int)position].growStage];
     }
 
-    private void CreatePlowedTile(Vector3Int position) 
+    private void CreatePlowedTile(Vector3Int position)
     {
         CropTile crop = new CropTile();
         crops.Add((Vector2Int)position, crop);

@@ -13,7 +13,7 @@ public class DayTimeController : MonoBehaviour
     [SerializeField] AnimationCurve nightTimeCurve;
     [SerializeField] Color dayLightColor = Color.white;
 
-    float time;
+    public float time;
     [SerializeField] float timeScale = 60f;
     [SerializeField] float startAtTime = 25200f;
 
@@ -28,11 +28,6 @@ public class DayTimeController : MonoBehaviour
     {
         agents = new List<TimeAgent>();
         time = startAtTime;
-    }
-
-    private void Start()
-    {
-        
     }
 
     public void Subscribe(TimeAgent timeAgent)
